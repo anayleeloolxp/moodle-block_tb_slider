@@ -1,4 +1,5 @@
 // Standard license block omitted.
+/*eslint-disable no-unused-vars*/
 /*
  * @package block_tb_slider
  * @copyright  2020 Leeloo LXP (https://leeloolxp.com)
