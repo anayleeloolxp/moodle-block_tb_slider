@@ -17,9 +17,10 @@
 /**
  * Privacy Subsystem implementation for block_tb_slider.
  *
- * @package   block_tb_slider
- * @copyright 2015-2020 Kamil Łuczak    www.limsko.pl     kamil@limsko.pl
- * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @package block_tb_slider
+ * @copyright  2020 Leeloo LXP (https://leeloolxp.com)
+ * @author Leeloo LXP <info@leeloolxp.com>
+ * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
 namespace block_tb_slider\privacy;
@@ -37,7 +38,7 @@ use \core_privacy\local\metadata\collection;
 /**
  * Privacy Subsystem implementation for block_tb_slider.
  *
- * @copyright 2015-2020 Kamil Łuczak    www.limsko.pl     kamil@limsko.pl
+ * @copyright 2020 Leeloo LXP (https://leeloolxp.com)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 class provider implements \core_privacy\local\metadata\null_provider {

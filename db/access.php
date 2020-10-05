@@ -17,9 +17,10 @@
 /**
  * Simple slider block for Moodle
  *
- * @package   block_tb_slider
- * @copyright 2015 Kamil Łuczak    www.limsko.pl     kamil@limsko.pl
- * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @package block_tb_slider
+ * @copyright  2020 Leeloo LXP (https://leeloolxp.com)
+ * @author Leeloo LXP <info@leeloolxp.com>
+ * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
 defined('MOODLE_INTERNAL') || die();

@@ -17,11 +17,10 @@
 /**
  * Simple slider block for Moodle
  *
- * If You like my plugin please send a small donation https://paypal.me/limsko Thanks!
- *
- * @package   block_tb_slider
- * @copyright 2015-2020 Kamil Łuczak    www.limsko.pl     kamil@limsko.pl
- * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @package block_tb_slider
+ * @copyright  2020 Leeloo LXP (https://leeloolxp.com)
+ * @author Leeloo LXP <info@leeloolxp.com>
+ * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
 if (!defined('MOODLE_INTERNAL')) {
@@ -129,8 +128,17 @@ class block_tb_slider extends block_base {
 
         // Navigation Left/Right.
         if (!empty($settingleeloolxp->data->theme_info->navigation) && !$bxslider && $settingleeloolxp->data->slides_info) {
-            $this->content->text .= '<a href="#" class="slidesjs-previous slidesjs-navigation"><i class="icon fa fa-chevron-left icon-large" aria-hidden="true" aria-label="Prev"></i></a>';
-            $this->content->text .= '<a href="#" class="slidesjs-next slidesjs-navigation"><i class="icon fa fa-chevron-right icon-large" aria-hidden="true" aria-label="Next"></i></a>';
+            $this->content->text .= '<a href="#" class="slidesjs-previous slidesjs-navigation">';
+
+            $this->content->text .= '<i class="icon fa fa-chevron-left icon-large" aria-hidden="true" aria-label="Prev"></i>';
+
+            $this->content->text .= '</a>';
+
+            $this->content->text .= '<a href="#" class="slidesjs-next slidesjs-navigation">';
+
+            $this->content->text .= '<i class="icon fa fa-chevron-right icon-large" aria-hidden="true" aria-label="Next"></i>';
+
+            $this->content->text .= '</a>';
         }
 
         $this->content->text .= '</div></div>';
@@ -252,7 +260,7 @@ class block_tb_slider extends block_base {
                         $html .= html_writer::start_tag('div', array('class' => 'bx-caption' . $classes));
                         $html .= html_writer::tag('span', $slide->slide_title);
                         $html .= html_writer::tag('p', $slide->slide_desc);
-                        //$html .= html_writer::div($slide->slide_link , 'slide_desc_sec' );
+                        // $html .= html_writer::div($slide->slide_link , 'slide_desc_sec' );
                         $html .= html_writer::end_tag('div');
                     }
 

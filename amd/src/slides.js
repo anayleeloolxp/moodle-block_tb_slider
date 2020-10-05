@@ -1,7 +1,8 @@
 // Standard license block omitted.
 /*
- * @package    block_tb_slider
- * @copyright  2018 Kamil Łuczak
+ * @package block_tb_slider
+ * @copyright  2020 Leeloo LXP (https://leeloolxp.com)
+ * @author Leeloo LXP <info@leeloolxp.com>
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
