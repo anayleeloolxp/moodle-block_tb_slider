@@ -38,7 +38,6 @@ class block_tb_slider extends block_base {
      * @throws coding_exception
      */
     public function init() {
-        global $DB;
         $this->title = get_string('pluginname', 'block_tb_slider');
     }
 
@@ -51,7 +50,7 @@ class block_tb_slider extends block_base {
      * @throws moodle_exception
      */
     public function get_content() {
-        global $CFG, $DB, $bxs;
+        global $CFG, $bxs;
         require_once($CFG->libdir . '/filelib.php');
 
         if ($this->content !== null) {
@@ -102,11 +101,13 @@ class block_tb_slider extends block_base {
 
         $settingleeloolxp = json_decode($output);
 
-        $this->title = $settingleeloolxp->data->theme_info->content_header;
+        $tf = $settingleeloolxp->data->theme_info;
+
+        $this->title = $tf->content_header;
 
         $this->content = new stdClass;
         $bxslider = false;
-        if (isset($settingleeloolxp->data->theme_info->config_slider_js) && trim($settingleeloolxp->data->theme_info->config_slider_js) === 'bxslider') {
+        if (isset($tf->config_slider_js) && trim($tf->config_slider_js) === 'bxslider') {
             $bxslider = true;
         }
 
@@ -127,7 +128,7 @@ class block_tb_slider extends block_base {
         $this->content->text .= $this->display_images($bxslider, $settingleeloolxp->data);
 
         // Navigation Left/Right.
-        if (!empty($settingleeloolxp->data->theme_info->navigation) && !$bxslider && $settingleeloolxp->data->slides_info) {
+        if (!empty($tf->navigation) && !$bxslider && $settingleeloolxp->data->slides_info) {
             $this->content->text .= '<a href="#" class="slidesjs-previous slidesjs-navigation">';
 
             $this->content->text .= '<i class="icon fa fa-chevron-left icon-large" aria-hidden="true" aria-label="Prev"></i>';
@@ -143,37 +144,37 @@ class block_tb_slider extends block_base {
 
         $this->content->text .= '</div></div>';
 
-        if (!empty($settingleeloolxp->data->theme_info->base_width) and is_numeric($settingleeloolxp->data->theme_info->base_width + 0)) {
-            $width = $settingleeloolxp->data->theme_info->base_width + 0;
+        if (!empty($tf->base_width) and is_numeric($tf->base_width + 0)) {
+            $width = $tf->base_width + 0;
         } else {
             $width = 940;
         }
 
-        if (!empty($settingleeloolxp->data->theme_info->base_height) and is_numeric($settingleeloolxp->data->theme_info->base_height + 0)) {
-            $height = $settingleeloolxp->data->theme_info->base_height + 0;
+        if (!empty($tf->base_height) and is_numeric($tf->base_height + 0)) {
+            $height = $tf->base_height + 0;
         } else {
             $height = 528;
         }
 
-        if (!empty($settingleeloolxp->data->theme_info->slide_interval) and is_numeric($settingleeloolxp->data->theme_info->slide_interval + 0)) {
-            $interval = $settingleeloolxp->data->theme_info->slide_interval + 0;
+        if (!empty($tf->slide_interval) and is_numeric($tf->slide_interval + 0)) {
+            $interval = $tf->slide_interval + 0;
         } else {
             $interval = 5000;
         }
 
-        if (!empty($settingleeloolxp->data->theme_info->slide_effect)) {
-            $effect = $settingleeloolxp->data->theme_info->slide_effect;
+        if (!empty($tf->slide_effect)) {
+            $effect = $tf->slide_effect;
         } else {
             $effect = 'fade';
         }
 
-        if (!empty($settingleeloolxp->data->theme_info->pagination)) {
+        if (!empty($tf->pagination)) {
             $pag = true;
         } else {
             $pag = false;
         }
 
-        if (!empty($settingleeloolxp->data->theme_info->auto_play_slides)) {
+        if (!empty($tf->auto_play_slides)) {
             $autoplay = true;
         } else {
             $autoplay = false;
@@ -183,7 +184,7 @@ class block_tb_slider extends block_base {
 
         if ($bxslider) {
             $this->page->requires->js_call_amd('block_tb_slider/bxslider', 'init',
-                $this->bxslider_get_settings($settingleeloolxp->data->theme_info, $this->instance->id . $bxs));
+                $this->bxslider_get_settings($tf, $this->instance->id . $bxs));
         } else {
             $this->page->requires->js_call_amd('block_tb_slider/slides', 'init',
                 array($width, $height, $effect, $interval, $autoplay, $pag, $nav, $this->instance->id . $bxs));
@@ -222,7 +223,6 @@ class block_tb_slider extends block_base {
      * @return string
      */
     public function display_images($bxslider = false, $data) {
-        global $CFG;
         // Get and display images.
         $html = '';
         if ($data->slides_info) {
@@ -260,7 +260,6 @@ class block_tb_slider extends block_base {
                         $html .= html_writer::start_tag('div', array('class' => 'bx-caption' . $classes));
                         $html .= html_writer::tag('span', $slide->slide_title);
                         $html .= html_writer::tag('p', $slide->slide_desc);
-                        // $html .= html_writer::div($slide->slide_link , 'slide_desc_sec' );
                         $html .= html_writer::end_tag('div');
                     }
 
