@@ -33,8 +33,6 @@ if (!defined('MOODLE_INTERNAL')) {
  */
 class block_tb_slider extends block_base {
 
-    public $hasslides = false;
-
     /**
      * Initializes block.
      *
@@ -55,7 +53,7 @@ class block_tb_slider extends block_base {
      */
     public function get_content() {
         global $CFG, $DB, $bxs;
-        require_once ($CFG->libdir . '/filelib.php');
+        require_once($CFG->libdir . '/filelib.php');
 
         if ($this->content !== null) {
             return $this->content;
@@ -131,28 +129,26 @@ class block_tb_slider extends block_base {
 
         // Navigation Left/Right.
         if (!empty($settingleeloolxp->data->theme_info->navigation) && !$bxslider && $settingleeloolxp->data->slides_info) {
-            $this->content->text .= '<a href="#" class="slidesjs-previous slidesjs-navigation">
-    <i class="icon fa fa-chevron-left icon-large" aria-hidden="true" aria-label="Prev"></i></a>';
-            $this->content->text .= '<a href="#" class="slidesjs-next slidesjs-navigation">
-    <i class="icon fa fa-chevron-right icon-large" aria-hidden="true" aria-label="Next"></i></a>';
+            $this->content->text .= '<a href="#" class="slidesjs-previous slidesjs-navigation"><i class="icon fa fa-chevron-left icon-large" aria-hidden="true" aria-label="Prev"></i></a>';
+            $this->content->text .= '<a href="#" class="slidesjs-next slidesjs-navigation"><i class="icon fa fa-chevron-right icon-large" aria-hidden="true" aria-label="Next"></i></a>';
         }
 
         $this->content->text .= '</div></div>';
 
-        if (!empty($settingleeloolxp->data->theme_info->base_width) and is_numeric($settingleeloolxp->data->theme_info->base_width+0)) {
-            $width = $settingleeloolxp->data->theme_info->base_width+0;
+        if (!empty($settingleeloolxp->data->theme_info->base_width) and is_numeric($settingleeloolxp->data->theme_info->base_width + 0)) {
+            $width = $settingleeloolxp->data->theme_info->base_width + 0;
         } else {
             $width = 940;
         }
 
-        if (!empty($settingleeloolxp->data->theme_info->base_height) and is_numeric($settingleeloolxp->data->theme_info->base_height+0)) {
-            $height = $settingleeloolxp->data->theme_info->base_height+0;
+        if (!empty($settingleeloolxp->data->theme_info->base_height) and is_numeric($settingleeloolxp->data->theme_info->base_height + 0)) {
+            $height = $settingleeloolxp->data->theme_info->base_height + 0;
         } else {
             $height = 528;
         }
 
-        if (!empty($settingleeloolxp->data->theme_info->slide_interval) and is_numeric($settingleeloolxp->data->theme_info->slide_interval+0)) {
-            $interval = $settingleeloolxp->data->theme_info->slide_interval+0;
+        if (!empty($settingleeloolxp->data->theme_info->slide_interval) and is_numeric($settingleeloolxp->data->theme_info->slide_interval + 0)) {
+            $interval = $settingleeloolxp->data->theme_info->slide_interval + 0;
         } else {
             $interval = 5000;
         }
@@ -179,7 +175,7 @@ class block_tb_slider extends block_base {
 
         if ($bxslider) {
             $this->page->requires->js_call_amd('block_tb_slider/bxslider', 'init',
-            $this->bxslider_get_settings($settingleeloolxp->data->theme_info, $this->instance->id . $bxs));
+                $this->bxslider_get_settings($settingleeloolxp->data->theme_info, $this->instance->id . $bxs));
         } else {
             $this->page->requires->js_call_amd('block_tb_slider/slides', 'init',
                 array($width, $height, $effect, $interval, $autoplay, $pag, $nav, $this->instance->id . $bxs));
@@ -191,8 +187,8 @@ class block_tb_slider extends block_base {
     /**
      * Get settings for BXSlider JS.
      *
-     * @param $config
-     * @param $sliderid
+     * @param stdClass|stdObject $config
+     * @param int $sliderid
      * @return array
      */
     public function bxslider_get_settings($config, $sliderid) {
@@ -214,6 +210,7 @@ class block_tb_slider extends block_base {
      * Generate html with slides.
      *
      * @param bool $bxslider
+     * @param stdClass|stdObject $data
      * @return string
      */
     public function display_images($bxslider = false, $data) {
