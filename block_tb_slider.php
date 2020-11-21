@@ -67,7 +67,7 @@ class block_tb_slider extends block_base {
         $options = array(
             'CURLOPT_RETURNTRANSFER' => true,
             'CURLOPT_HEADER' => false,
-            'CURLOPT_POST' => count($postdata),
+            'CURLOPT_POST' => 1,
         );
 
         if (!$output = $curl->post($url, $postdata, $options)) {
@@ -91,7 +91,7 @@ class block_tb_slider extends block_base {
         $options = array(
             'CURLOPT_RETURNTRANSFER' => true,
             'CURLOPT_HEADER' => false,
-            'CURLOPT_POST' => count($postdata),
+            'CURLOPT_POST' => 1,
         );
 
         if (!$output = $curl->post($url, $postdata, $options)) {
@@ -116,7 +116,7 @@ class block_tb_slider extends block_base {
         } else {
             $bxs++;
         }
-        $this->content->text .= '<div class="slider"><div id="slides' . $this->instance->id . $bxs . '" ';
+        $this->content->text = '<div class="slider"><div id="slides' . $this->instance->id . $bxs . '" ';
 
         if (!$bxslider) {
             $this->content->text .= 'style="display: none;" class="slides' . $this->instance->id . $bxs . '"';
@@ -259,7 +259,7 @@ class block_tb_slider extends block_base {
                         }
                         $html .= html_writer::start_tag('div', array('class' => 'bx-caption' . $classes));
                         $html .= html_writer::tag('span', $slide->slide_title);
-                        $html .= html_writer::tag('p', $slide->slide_desc);
+                        $html .= html_writer::tag('p', $slide->slide_description);
                         $html .= html_writer::end_tag('div');
                     }
 
