@@ -15,21 +15,16 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Simple slider block for Moodle
+ * Moodle Get settings from L
  *
- * @package block_tb_slider
+ * @package    block_tb_slider
  * @copyright  2020 Leeloo LXP (https://leeloolxp.com)
- * @author Leeloo LXP <info@leeloolxp.com>
+ * @author     Leeloo LXP <info@leeloolxp.com>
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-if (!defined('MOODLE_INTERNAL')) {
-    die('Direct access to this script is forbidden.'); // It must be included from a Moodle page.
-}
+require('../../config.php');
 
-$plugin->version = 2020051300;
-$plugin->requires = 2016052312;
-$plugin->maturity = MATURITY_STABLE;
-$plugin->release = "0.0.1";
-$plugin->component = 'block_tb_slider';
-$plugin->cron = 60*5; //5mins.
+require_once($CFG->libdir . '/filelib.php');
+require_once($CFG->dirroot . '/blocks/tb_slider/locallib.php');
+updateconfslider();

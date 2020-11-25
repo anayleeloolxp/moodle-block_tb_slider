@@ -58,48 +58,9 @@ class block_tb_slider extends block_base {
         }
 
         $leeloolxplicense = get_config('block_tb_slider')->license;
+        $settingsjson = get_config('block_tb_slider')->settingsjson;
 
-        $url = 'https://leeloolxp.com/api_moodle.php/?action=page_info';
-        $postdata = '&license_key=' . $leeloolxplicense;
-
-        $curl = new curl;
-
-        $options = array(
-            'CURLOPT_RETURNTRANSFER' => true,
-            'CURLOPT_HEADER' => false,
-            'CURLOPT_POST' => 1,
-        );
-
-        if (!$output = $curl->post($url, $postdata, $options)) {
-            return $this->content;
-        }
-
-        $infoleeloolxp = json_decode($output);
-
-        if ($infoleeloolxp->status != 'false') {
-            $leeloolxpurl = $infoleeloolxp->data->install_url;
-        } else {
-            $this->content->text = 'License Key Not Vaild';
-            return $this->content;
-        }
-
-        $url = $leeloolxpurl . '/admin/Theme_setup/get_sliders_data';
-        $postdata = '&license_key=' . $leeloolxplicense;
-
-        $curl = new curl;
-
-        $options = array(
-            'CURLOPT_RETURNTRANSFER' => true,
-            'CURLOPT_HEADER' => false,
-            'CURLOPT_POST' => 1,
-        );
-
-        if (!$output = $curl->post($url, $postdata, $options)) {
-            $this->content->text = 'License Key Not Vaild';
-            return $this->content;
-        }
-
-        $settingleeloolxp = json_decode($output);
+        $settingleeloolxp = json_decode(base64_decode($settingsjson));
 
         $tf = $settingleeloolxp->data->theme_info;
 
@@ -313,5 +274,13 @@ class block_tb_slider extends block_base {
         } else {
             return true;
         }
+    }
+    
+    /**
+     * Get settings from Leeloo
+     */
+    public function cron() {
+        require_once($CFG->dirroot . '/blocks/tb_slider/lib.php');
+        updateconfslider();
     }
 }

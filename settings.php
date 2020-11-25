@@ -28,10 +28,18 @@ if (!defined('MOODLE_INTERNAL')) {
 }
 
 if ($ADMIN->fulltree) {
-    $settings->add(new admin_setting_configtext(
+
+    require_once($CFG->dirroot . '/blocks/tb_slider/lib.php');
+
+    $setting = new admin_setting_configtext(
         'block_tb_slider/license',
         get_string('license', 'block_tb_slider'),
         get_string('license', 'block_tb_slider'),
         0
-    ));
+    );
+    $setting->set_updatedcallback(updateconfslider());
+    $settings->add($setting);
+
+    $setting = new admin_setting_configslider('block_tb_slider/settingsjson', '', '', '', PARAM_RAW);
+    $settings->add($setting);
 }
