@@ -64,7 +64,7 @@ class block_tb_slider extends block_base {
 
         $tf = $settingleeloolxp->data->theme_info;
 
-        $this->title = $tf->content_header;
+        $this->title = @$tf->content_header;
 
         $this->content = new stdClass;
         $bxslider = false;
