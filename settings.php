@@ -28,7 +28,6 @@ if (!defined('MOODLE_INTERNAL')) {
 }
 
 if ($ADMIN->fulltree) {
-
     require_once($CFG->dirroot . '/blocks/tb_slider/lib.php');
 
     $setting = new admin_setting_configtext(

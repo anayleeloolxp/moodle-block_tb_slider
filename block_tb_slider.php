@@ -275,7 +275,7 @@ class block_tb_slider extends block_base {
             return true;
         }
     }
-    
+
     /**
      * Get settings from Leeloo
      */

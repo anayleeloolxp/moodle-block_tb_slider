@@ -32,4 +32,4 @@ $plugin->requires = 2016052312;
 $plugin->maturity = MATURITY_STABLE;
 $plugin->release = "0.0.1";
 $plugin->component = 'block_tb_slider';
-$plugin->cron = 60*5; //5mins.
+$plugin->cron = 60 * 5; // 5mins.

@@ -27,14 +27,6 @@ namespace block_tb_slider\privacy;
 
 defined('MOODLE_INTERNAL') || die();
 
-use \core_privacy\local\request\userlist;
-use \core_privacy\local\request\approved_contextlist;
-use \core_privacy\local\request\approved_userlist;
-use \core_privacy\local\request\writer;
-use \core_privacy\local\request\helper;
-use \core_privacy\local\request\deletion_criteria;
-use \core_privacy\local\metadata\collection;
-
 /**
  * Privacy Subsystem implementation for block_tb_slider.
  *
@@ -49,7 +41,7 @@ class provider implements \core_privacy\local\metadata\null_provider {
      *
      * @return  string
      */
-    public static function get_reason() : string {
+    public static function get_reason(): string {
         return 'privacy:metadata';
     }
 }

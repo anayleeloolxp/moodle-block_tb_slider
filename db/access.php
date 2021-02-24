@@ -27,29 +27,29 @@ defined('MOODLE_INTERNAL') || die();
 
 $capabilities = array(
 
-        'block/tb_slider:addinstance' => array(
-                'captype' => 'write',
-                'contextlevel' => CONTEXT_BLOCK,
-                'archetypes' => array(
-                        'editingteacher' => CAP_ALLOW,
-                        'manager' => CAP_ALLOW
-                ),
-                'clonepermissionsfrom' => 'moodle/site:manageblocks'
+    'block/tb_slider:addinstance' => array(
+        'captype' => 'write',
+        'contextlevel' => CONTEXT_BLOCK,
+        'archetypes' => array(
+            'editingteacher' => CAP_ALLOW,
+            'manager' => CAP_ALLOW,
         ),
-        'block/tb_slider:myaddinstance' => array(
-                'captype' => 'write',
-                'contextlevel' => CONTEXT_BLOCK,
-                'archetypes' => array(
-                        'editingteacher' => CAP_ALLOW,
-                        'manager' => CAP_ALLOW
-                ),
+        'clonepermissionsfrom' => 'moodle/site:manageblocks',
+    ),
+    'block/tb_slider:myaddinstance' => array(
+        'captype' => 'write',
+        'contextlevel' => CONTEXT_BLOCK,
+        'archetypes' => array(
+            'editingteacher' => CAP_ALLOW,
+            'manager' => CAP_ALLOW,
         ),
-        'block/tb_slider:manage' => array(
-                'captype' => 'write',
-                'contextlevel' => CONTEXT_BLOCK,
-                'archetypes' => array(
-                        'editingteacher' => CAP_ALLOW,
-                        'manager' => CAP_ALLOW
-                ),
+    ),
+    'block/tb_slider:manage' => array(
+        'captype' => 'write',
+        'contextlevel' => CONTEXT_BLOCK,
+        'archetypes' => array(
+            'editingteacher' => CAP_ALLOW,
+            'manager' => CAP_ALLOW,
         ),
+    ),
 );
