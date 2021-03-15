@@ -62,6 +62,14 @@ class block_tb_slider extends block_base {
 
         $settingleeloolxp = json_decode(base64_decode($settingsjson));
 
+        if (!isset($settingleeloolxp->data->theme_info)) {
+            $this->title = get_string('pluginname', 'block_tb_slider');
+            $this->content = new stdClass();
+            $this->content->text = '';
+            $this->content->footer = '';
+            return $this->content;
+        }
+
         $tf = $settingleeloolxp->data->theme_info;
 
         $this->title = @$tf->content_header;
