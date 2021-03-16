@@ -24,6 +24,7 @@
  */
 
 $string['pluginname'] = 'Leeloo LXP Content Slider';
+$string['blocktitle'] = 'Leeloo LXP Content Slider';
 $string['license'] = 'Leeloo LXP License ID';
 $string['nolicense'] = 'Invalid Leeloo LXP License ID';
 $string['slider:addinstance'] = 'Add a new Leeloo LXP Content Slider block';
