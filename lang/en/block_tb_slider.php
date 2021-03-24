@@ -82,3 +82,6 @@ $string['config_bx_speed'] = 'Transition duration';
 $string['config_bx_speed_help'] = 'Slide transition duration (in ms)';
 $string['config_bx_useCSS'] = 'Use CSS';
 $string['config_bx_useCSS_help'] = 'If true, CSS transitions will be used for horizontal and vertical slide animations (this uses native hardware acceleration). If false, jQuery animate() will be used.';
+$string['tb_slider:addinstance'] = '';
+$string['tb_slider:manage'] = '';
+$string['tb_slider:myaddinstance'] = '';
