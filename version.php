@@ -27,7 +27,7 @@ if (!defined('MOODLE_INTERNAL')) {
     die('Direct access to this script is forbidden.'); // It must be included from a Moodle page.
 }
 
-$plugin->version = 2020051300;
+$plugin->version = 2021030102;
 $plugin->requires = 2016052312;
 $plugin->maturity = MATURITY_STABLE;
 $plugin->release = "0.0.1";

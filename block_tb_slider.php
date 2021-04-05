@@ -264,11 +264,7 @@ class block_tb_slider extends block_base {
      * @return array
      */
     public function applicable_formats() {
-        return array(
-            'site' => true,
-            'course-view' => true,
-            'my' => true,
-        );
+        return array('all' => true);
     }
 
     /**
