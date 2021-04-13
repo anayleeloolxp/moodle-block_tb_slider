@@ -279,12 +279,4 @@ class block_tb_slider extends block_base {
             return true;
         }
     }
-
-    /**
-     * Get settings from Leeloo
-     */
-    public function cron() {
-        require_once($CFG->dirroot . '/blocks/tb_slider/lib.php');
-        updateconfslider();
-    }
 }
