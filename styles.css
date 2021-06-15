@@ -285,12 +285,12 @@
     margin-bottom: 1px;
 }
 
-.block_tb_slider .bx-wrapper .bx-caption.bxcaption.bxdesc.hideonhover {
+.block_tb_slider .bx-wrapper .bx-caption.bxcaption.hideonhover {
     margin-bottom: -100%;
     transition: margin 700ms;
 }
 
-.block_tb_slider .bx-wrapper:hover .bx-caption.bxcaption.bxdesc.hideonhover {
+.block_tb_slider .bx-wrapper:hover .bx-caption.bxcaption.hideonhover {
     margin-bottom: 0%;
 }
 .block_tb_slider .slider {
