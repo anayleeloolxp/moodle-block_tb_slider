@@ -323,7 +323,7 @@
     align-items: center;
     justify-content: center;
     color: #fff;
-    background: rgba(0,0,0,0.2);
+    background: rgba(0, 0, 0, 0.2);
     text-decoration: none;
 }
 
@@ -337,6 +337,7 @@
 .block_tb_slider a.slidesjs-next.slidesjs-navigation {
     right: 0;
 }
+
 @media screen and (max-width: 640px) {
     .block_tb_slider .bx-wrapper .bx-caption {
         font-size: 0.8rem;
