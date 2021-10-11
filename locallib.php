@@ -28,7 +28,7 @@ defined('MOODLE_INTERNAL') || die();
 /**
  * Fetch and Update Configration From L
  */
-function updateconfslider() {
+function block_tb_slider_updateconf() {
     if (isset(get_config('block_tb_slider')->license)) {
         $leeloolxplicense = get_config('block_tb_slider')->license;
     } else {
