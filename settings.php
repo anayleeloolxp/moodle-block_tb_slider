@@ -36,7 +36,7 @@ if ($ADMIN->fulltree) {
         get_string('license', 'block_tb_slider'),
         0
     );
-    $setting->set_updatedcallback(block_tb_slider_updateconf());
+    //$setting->set_updatedcallback(block_tb_slider_updateconf());
     $settings->add($setting);
 
     $setting = new admin_setting_configslider('block_tb_slider/settingsjson', '', '', '', PARAM_RAW);
