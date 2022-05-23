@@ -152,11 +152,17 @@ class block_tb_slider extends block_base {
         $nav = false;
 
         if ($bxslider) {
-            $this->page->requires->js_call_amd('block_tb_slider/bxslider', 'init',
-                $this->bxslider_get_settings($tf, $this->instance->id . $bxs));
+            $this->page->requires->js_call_amd(
+                'block_tb_slider/bxslider',
+                'init',
+                $this->bxslider_get_settings($tf, $this->instance->id . $bxs)
+            );
         } else {
-            $this->page->requires->js_call_amd('block_tb_slider/slides', 'init',
-                array($width, $height, $effect, $interval, $autoplay, $pag, $nav, $this->instance->id . $bxs));
+            $this->page->requires->js_call_amd(
+                'block_tb_slider/slides',
+                'init',
+                array($width, $height, $effect, $interval, $autoplay, $pag, $nav, $this->instance->id . $bxs)
+            );
         }
 
         return $this->content;
@@ -180,8 +186,10 @@ class block_tb_slider extends block_base {
         $bxauto = isset($config->auto) ? $config->auto : 1;
         $bxstopautoonclick = isset($config->stop_on_click) ? $config->stop_on_click : 0;
         $bxusecss = isset($config->is_css) ? $config->is_css : 0;
-        return array($sliderid, $bxpause, $bxeffect, $bxspeed, boolval($bxcaptions), boolval($bxresponsive), boolval($bxpager),
-            boolval($bxcontrols), boolval($bxauto), boolval($bxstopautoonclick), boolval($bxusecss));
+        return array(
+            $sliderid, $bxpause, $bxeffect, $bxspeed, boolval($bxcaptions), boolval($bxresponsive), boolval($bxpager),
+            boolval($bxcontrols), boolval($bxauto), boolval($bxstopautoonclick), boolval($bxusecss)
+        );
     }
 
     /**
@@ -203,12 +211,16 @@ class block_tb_slider extends block_base {
                 if (!empty($slide->slide_link)) {
                     $html .= html_writer::start_tag('a', array('href' => $slide->slide_link, 'rel' => 'nofollow'));
                 }
-                $html .= html_writer::empty_tag('img',
-                    array('src' => $imageurl,
+                $html .= html_writer::empty_tag(
+                    'img',
+                    array(
+                        'src' => $imageurl,
                         'class' => 'img',
                         'alt' => $slide->slide_image,
                         // Title has been moved to html code.
-                        'width' => '100%'));
+                        'width' => '100%'
+                    )
+                );
                 if (!empty($slide->slide_link)) {
                     $html .= html_writer::end_tag('a');
                 }
