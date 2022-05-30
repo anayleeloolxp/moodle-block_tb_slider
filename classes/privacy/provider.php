@@ -25,8 +25,6 @@
 
 namespace block_tb_slider\privacy;
 
-defined('MOODLE_INTERNAL') || die();
-
 /**
  * Privacy Subsystem implementation for block_tb_slider.
  *

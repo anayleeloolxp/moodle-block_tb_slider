@@ -23,9 +23,7 @@
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-if (!defined('MOODLE_INTERNAL')) {
-    die('Direct access to this script is forbidden.'); // It must be included from a Moodle page.
-}
+defined('MOODLE_INTERNAL') || die();
 
 if ($ADMIN->fulltree) {
     require_once($CFG->dirroot . '/blocks/tb_slider/lib.php');
@@ -36,7 +34,7 @@ if ($ADMIN->fulltree) {
         get_string('license', 'block_tb_slider'),
         0
     );
-    //$setting->set_updatedcallback(block_tb_slider_updateconf());
+
     $settings->add($setting);
 
     $setting = new admin_setting_configslider('block_tb_slider/settingsjson', '', '', '', PARAM_RAW);
