@@ -234,9 +234,15 @@ class block_tb_slider extends block_base {
                         if ($data->theme_info->slide_caption) {
                             $classes .= ' hideonhover';
                         }
+
+                        $summaryformatoptions = new stdClass();
+                        $summaryformatoptions->noclean = false;
+                        $summaryformatoptions->overflowdiv = false;
+                        $summaryformatoptions->filter = true;
+
                         $html .= html_writer::start_tag('div', array('class' => 'bx-caption' . $classes));
-                        $html .= html_writer::tag('span', $slide->slide_title);
-                        $html .= html_writer::tag('p', $slide->slide_description);
+                        $html .= html_writer::tag('span', format_text($slide->slide_title, 1, $summaryformatoptions));
+                        $html .= html_writer::tag('p', format_text($slide->slide_description, 1, $summaryformatoptions));
                         $html .= html_writer::end_tag('div');
                     }
 
